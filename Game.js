@@ -15,3 +15,17 @@ let gravity = 0.05;
 
 // an array that stores line objects to create the grid of the game 
 let lines = [];
+
+// created a class called Lines and it'll created objects to build lines
+class Lines {
+
+    constructor(x, y, width, height) {
+
+        // this. refrences the current object it's in
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+
+    }
+}
