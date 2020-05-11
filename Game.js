@@ -15,6 +15,8 @@ let gravity = 0.05;
 
 // an array that stores line objects to create the grid of the game 
 let linesArr = [];
+// runs the run function every 20 milliseconds, saved to variable
+let intrvl = setInterval(run, 20);
 
 // created a class called Lines and it'll created objects to build lines
 class Lines {
