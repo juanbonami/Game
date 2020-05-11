@@ -12,11 +12,11 @@ let playerWidth = 40;
 let playerHeight = 40;
 let playerSpeed = 0;
 let gravity = 0.05;
-
+let intrvl = setInterval(run, 20);
 // an array that stores line objects to create the grid of the game 
 let linesArr = [];
 // runs the run function every 20 milliseconds, saved to variable
-let intrvl = setInterval(run, 20);
+
 
 // created a class called Lines and it'll created objects to build lines
 class Lines {
@@ -32,7 +32,8 @@ class Lines {
     }
 }
 
-const run = () => {
+
+function run() {
 
     for (let i=0; i < linesArr.length; i+=1) {
 
@@ -42,7 +43,7 @@ const run = () => {
             (playerX + playerWidth >= linesArr[i].x) && 
             (playerX <= linesArr[i].x + linesArr[i].width)) {  
 
-                clearInterval(intrvl);       
+               return clearInterval(intrvl);          
         }
     }
 
@@ -50,6 +51,7 @@ const run = () => {
     canvContext.clearRect(0, 0, canvas.width, canvas.height);
     frame++;
 
+    // checks if frame has value of 1 OR if frame is an even number 
     if (frame == 1 || (frame / 150) % 1 == 0) {
 
         let minHeight = 20;
@@ -58,11 +60,28 @@ const run = () => {
         let minGap = 50;
         let maxGap = 200;
         let gap = Math.floor(Math.random() * (maxGap-minGap+1) + minGap);
-
+        
+        // builds 2 Lines objects and pushes them into array
         linesArr.push(new Lines(canvas.width, 0, 5, height));
         linesArr.push(new Lines(canvas.width, height + gap, 5, canvas.height - height - gap));
+        // this will go on every 150 frames are completed
 
     }
 
+    // draws lines purple
+    canvContext.fillStyle = 'purple';
 
+    // loops through lines
+    for (let i=0; i < linesArr.length; i+=1) { 
+
+        // lines will move from right to left
+        linesArr[i].x -= 1;
+        // drawing lines by accessing them through array
+        canvContext.fillRect(linesArr[i].x, linesArr[i].y, linesArr[i].width, linesArr[i].height);
+
+    }
+
+    
+    
 }
+
