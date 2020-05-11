@@ -14,7 +14,7 @@ let playerSpeed = 0;
 let gravity = 0.05;
 
 // an array that stores line objects to create the grid of the game 
-let lines = [];
+let linesArr = [];
 
 // created a class called Lines and it'll created objects to build lines
 class Lines {
@@ -27,5 +27,19 @@ class Lines {
         this.width = width;
         this.height = height;
 
+    }
+}
+
+const run = () => {
+
+    for (let i=0; i < linesArr.length; i+=1) {
+
+        // loops through array checks if player touches line
+        if ((playerY + playerHeight >= linesArr[i].y) &&
+            (playerY <= linesArr[i].y + linesArr[i].height) &&
+            (playerX + playerWidth >= linesArr[i].x) && 
+            (playerX <= linesArr[i].x + linesArr[i].width)) {      
+                
+        }
     }
 }
