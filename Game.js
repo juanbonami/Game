@@ -40,8 +40,9 @@ const run = () => {
         if ((playerY + playerHeight >= linesArr[i].y) &&
             (playerY <= linesArr[i].y + linesArr[i].height) &&
             (playerX + playerWidth >= linesArr[i].x) && 
-            (playerX <= linesArr[i].x + linesArr[i].width)) {      
-                
+            (playerX <= linesArr[i].x + linesArr[i].width)) {  
+
+                clearInterval(intrvl);       
         }
     }
 }
