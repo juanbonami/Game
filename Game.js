@@ -45,4 +45,12 @@ const run = () => {
                 clearInterval(intrvl);       
         }
     }
+
+    // clear a rectangle within a the given rectangle(canvas)
+    canvContext.clearRect(0, 0, canvas.width, canvas.height);
+    frame++;
+
+    
+
+
 }
