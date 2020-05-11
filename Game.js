@@ -50,7 +50,19 @@ const run = () => {
     canvContext.clearRect(0, 0, canvas.width, canvas.height);
     frame++;
 
-    
+    if (frame == 1 || (frame / 150) % 1 == 0) {
+
+        let minHeight = 20;
+        let maxHeight = 200;
+        let height = Math.floor(Math.random() * (maxHeight-minHeight+1) + minHeight);
+        let minGap = 50;
+        let maxGap = 200;
+        let gap = Math.floor(Math.random() * (maxGap-minGap+1) + minGap);
+
+        linesArr.push(new Lines(canvas.width, 0, 5, height));
+        linesArr.push(new Lines(canvas.width, height + gap, 5, canvas.height - height - gap));
+
+    }
 
 
 }
