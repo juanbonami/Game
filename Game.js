@@ -81,7 +81,20 @@ function run() {
 
     }
 
-    
+    // this will create acceleration based on the combining value of gravity
+    playerSpeed += gravity;
+    // assigning the above speed to our playerY which moves along the Y axis
+    playerY += playerSpeed;
+    // changes drawing color to green
+    canvContext.fillStyle = 'green';
+    // draws player on canvas
+    canvContext.fillRect(playerX, playerY, playerWidth, playerHeight);
     
 }
+
+// if the up arrow key is pressed, it will change the gravity value to -0.3
+document.addEventListener('keydown', (e) => {if(e.which === 38) gravity = -0.3; });
+// if the up arrow key is NOT pressed, then it will change the value to 0.05
+document.addEventListener('keyup', (e) => {if(e.which === 38) gravity = 0.05; });
+
 
