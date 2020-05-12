@@ -12,7 +12,7 @@ let playerWidth = 40;
 let playerHeight = 40;
 let playerSpeed = 0;
 let gravity = 0.05;
-let intrvl = setInterval(run, 10);
+let intrvl = setInterval(run, 11);
 // an array that stores line objects to create the grid of the game 
 let linesArr = [];
 // runs the run function every 20 milliseconds, saved to variable
@@ -81,8 +81,9 @@ function run() {
 
     }
 
-    // 
+    // increases score by 50  every 150 frames
     if ((playerX + playerWidth >= linesArr[0].x) && (frame / 150) % 1 == 0) score += 50;
+    // draws the score
     canvContext.font = '16px tahoma';
     canvContext.fillStyle = 'lime';
     canvContext.fillText('Score: ' + score, 20, 30);
