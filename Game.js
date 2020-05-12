@@ -12,7 +12,7 @@ let playerWidth = 40;
 let playerHeight = 40;
 let playerSpeed = 0;
 let gravity = 0.05;
-let intrvl = setInterval(run, 20);
+let intrvl = setInterval(run, 10);
 // an array that stores line objects to create the grid of the game 
 let linesArr = [];
 // runs the run function every 20 milliseconds, saved to variable
@@ -80,6 +80,12 @@ function run() {
         canvContext.fillRect(linesArr[i].x, linesArr[i].y, linesArr[i].width, linesArr[i].height);
 
     }
+
+    // 
+    if ((playerX + playerWidth >= linesArr[0].x) && (frame / 150) % 1 == 0) score += 50;
+    canvContext.font = '16px tahoma';
+    canvContext.fillStyle = 'lime';
+    canvContext.fillText('Score: ' + score, 20, 30);
 
     // this will create acceleration based on the combining value of gravity
     playerSpeed += gravity;
