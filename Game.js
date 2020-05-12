@@ -96,6 +96,20 @@ function run() {
     canvContext.fillStyle = 'green';
     // draws player on canvas
     canvContext.fillRect(playerX, playerY, playerWidth, playerHeight);
+
+    if (playerY + playerHeight >= canvas.height) {
+
+        playerY = canvas.height - playerHeight;
+        canvContext.fillRect(playerX, playerY, playerWidth, playerHeight);
+        clearInterval(intrvl);
+    }
+
+    if (playerY < 0) {
+
+        playerY = 0;
+        canvContext.fillRect(playerX, playerY, playerWidth, playerHeight);
+        clearInterval(intrvl);
+    }
     
 }
 
